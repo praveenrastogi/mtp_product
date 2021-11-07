@@ -30,7 +30,7 @@ class get_all_records(Resource):
     def post(self):
         try: 
 
-            dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+            dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
 
             table = dynamodb.Table('products')
             response = table.scan()
@@ -52,7 +52,7 @@ class new_record(Resource):
             args = parser.parse_args()
             print(args['id'],args['name'],args['SKU'],args['weight'])
             try:
-                dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+                dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
 
                 table = dynamodb.Table('products')
                 response = table.put_item(
